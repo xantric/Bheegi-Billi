@@ -12,7 +12,7 @@ public class JumpTime : MonoBehaviour
     public SlowDown sl;
 
 
-    private int maxStamina = 15;
+    private int maxStamina = 5;
     private int currentStamina;
 
     public static JumpTime instance;

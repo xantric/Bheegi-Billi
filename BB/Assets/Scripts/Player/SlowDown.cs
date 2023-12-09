@@ -29,7 +29,7 @@ public class SlowDown : MonoBehaviour
         timer += (Time.deltaTime);
         
         arrow.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), Time.deltaTime * rotspeed);
-        if (timer > 15.0f)
+        if (timer > 5.0f)
         {
             if (Input.GetButtonDown("Jump") && check == 0)
             {
