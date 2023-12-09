@@ -10,10 +10,11 @@ public class SlowDown : MonoBehaviour
     public GameObject arrow;
     public GameObject player;
     Rigidbody2D rb;
-    float timer;
+    public float timer;
 
     public float dashSpeed = 10.0f;
     public float rotspeed = 20.0f;
+    int check = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -30,19 +31,19 @@ public class SlowDown : MonoBehaviour
         arrow.transform.RotateAround(player.transform.position, new Vector3(0, 0, 1), Time.deltaTime * rotspeed);
         if (timer > 15.0f)
         {
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("Jump") && check == 0)
             {
                 Time.timeScale = 1f / slowness;
                 playmov.enabled = false;
-
+                check = 1;
                 arrow.SetActive(true);
             }
 
-            if (Input.GetButtonUp("Jump"))
+            if (Input.GetButtonUp("Jump") && check == 1)
             {
                 // playmov.isJumping=false;
                 Time.timeScale = 1.0f;
-
+                check= 0;
                 playmov.enabled = true;
                 arrow.SetActive(false);
 
@@ -50,6 +51,7 @@ public class SlowDown : MonoBehaviour
                 //rb.velocity = arrow.transform.up * dashSpeed;
                 rb.AddForce(arrow.transform.up * dashSpeed, ForceMode2D.Impulse);
                 timer = 0;
+                JumpTime.instance.UseStamina();
             }
         }
 
