@@ -7,7 +7,7 @@ public class Portals : MonoBehaviour
 {
     public Transform destination;//the position where the player will be teleported to
     GameObject player;
-
+    public Vector2 velocityScale;
     Rigidbody2D rb;
 
     void Awake()
@@ -37,7 +37,7 @@ public class Portals : MonoBehaviour
         player.transform.position = destination.position;
 
         //yield return new WaitForSeconds(0.5f);
-        rb.velocity = -(new Vector2(0.5f * velocity.x, 0.2f * velocity.y));
+        rb.velocity = new Vector2(velocityScale.x * velocity.x, velocityScale.y * velocity.y); //velocity must be changed as per the portals dimensions and requirements
         yield return new WaitForSeconds(0);
    
         //rb.simulated = true;
