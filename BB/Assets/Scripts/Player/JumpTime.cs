@@ -9,10 +9,10 @@ public class JumpTime : MonoBehaviour
     // Start is called before the first frame update
 
     public Slider slider;
-    public SlowDown sl;
+    public Dash sl;
 
 
-    private int maxStamina = 5;
+    private int maxStamina = 3;
     private int currentStamina;
 
     public static JumpTime instance;
