@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: ca9ef673f2ab1e44ba63e2444a465f7d
   - enabled: 1
-    path: Assets/Scenes/Level Select.unity
+    path: Assets/Scenes/Time Trials.unity
     guid: 34f7ad9b853e2934394f13658d1922ea
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
