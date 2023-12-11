@@ -12,15 +12,16 @@ public class ScoreManager : MonoBehaviour
     public string level_number;
     void Awake()
     {
+        //PlayerPrefs.DeleteAll();
         var json = PlayerPrefs.GetString("scores"+ level_number, "{}");
         sd = JsonUtility.FromJson<ScoreData>(json);
-        //sd.scores.Clear();
     }
 
     private void Start()
     {
         string username = PlayerPrefs.GetString("username");
         int new_score = PlayerPrefs.GetInt("Score" + level_number);
+        PlayerPrefs.DeleteKey("Score" + level_number);
         var scores = GetHighScores().ToArray();
         for (int i = 0; i < scores.Length; i++)
         {
