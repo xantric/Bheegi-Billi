@@ -366,7 +366,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   error: 0
   jumpForce: 12
-  ds: {fileID: 1142155818}
   isSideWall: 0
 --- !u!212 &112911769
 SpriteRenderer:
@@ -629,7 +628,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   error: 30
   jumpForce: 12
-  ds: {fileID: 1142155818}
   isSideWall: 1
 --- !u!212 &515290071
 SpriteRenderer:
@@ -1346,7 +1344,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   error: 0
   jumpForce: 12
-  ds: {fileID: 1142155818}
   isSideWall: 0
 --- !u!212 &987272262
 SpriteRenderer:
@@ -1458,7 +1455,7 @@ GameObject:
   - component: {fileID: 1142155818}
   m_Layer: 0
   m_Name: RotatePoint
-  m_TagString: Untagged
+  m_TagString: RotatePoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2311,7 +2308,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   error: 0
   jumpForce: 12
-  ds: {fileID: 1142155818}
   isSideWall: 0
 --- !u!212 &2018005261
 SpriteRenderer:
@@ -2547,10 +2543,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90e9b88d8680abf458fecd38735c0274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2057907546}
-  speed: 10
-  isJumping: 0
-  jumpForce: 10
 --- !u!114 &2057907548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2563,8 +2555,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 653c0f86bd4a91d409be5d64191ecdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 10
-  wallSlideSpeed: 1
 --- !u!114 &2057907549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2577,6 +2567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d21e0bd12cdf347a711b580e66b3d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpingPower: 16
   isDashtimer: 0
   rb: {fileID: 2057907543}
   groundCheck: {fileID: 888736361}

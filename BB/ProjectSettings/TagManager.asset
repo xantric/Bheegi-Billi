@@ -6,6 +6,7 @@ TagManager:
   tags:
   - UpLayer
   - DownLayer
+  - RotatePoint
   layers:
   - Default
   - TransparentFX

@@ -4,7 +4,7 @@ public class Movement : MonoBehaviour
 {
     private float horizontal;
     private float speed = 8f;
-    private float jumpingPower = 16f;
+    [SerializeField]private float jumpingPower = 16f;
     private bool isFacingRight = true;
 
     private bool isWallSliding;
