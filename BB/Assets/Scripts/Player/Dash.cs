@@ -16,7 +16,7 @@ public class Dash : MonoBehaviour
     public GameObject arrow;
     public float dashSpeed = 10.0f;
     public Movement playmov;
-
+    public LayerMask targetlayers;
     public float stamina = 3.0f;
     private IEnumerator coroutine;
     public float targetMagnitude = 5f;
@@ -56,6 +56,7 @@ public class Dash : MonoBehaviour
 
             if (Input.GetMouseButtonUp(0) && check == 1)
             {
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, arrow.transform.up, targetMagnitude,targetlayers);
                 if (_isDashing == false)
                 {
                     Time.timeScale = 1.0f;
@@ -71,10 +72,27 @@ public class Dash : MonoBehaviour
 
 
                     startPoint = player.transform.position;
+                    if(hit.collider != null)
+                    {
+                        if(hit.collider.gameObject.layer == 9)
+                        {
+                            float d1 = hit.distance;
+                            float d2 = (hit.collider.bounds.size).magnitude/2;
+                            float factori = 1 - d2/d1;
+                            destinationPoint = startPoint + factori*((Vector2)(hit.collider.gameObject.transform.position) - startPoint);
+                        }
+                        if(hit.collider.gameObject.layer == 8)
+                        {
+                            destinationPoint = hit.collider.gameObject.transform.position;
+                        }
+                    }
+                    else
+                    {
+                        destinationPoint = startPoint + (Vector2)(arrow.transform.up.normalized * targetMagnitude);
 
-                    destinationPoint = startPoint + (Vector2)(arrow.transform.up.normalized * targetMagnitude);
-                     
-                    
+                    }
+
+
                     JumpTime.instance.UseStamina();
                 }
             }
@@ -89,7 +107,7 @@ public class Dash : MonoBehaviour
             float perc = Mathf.Clamp01(_currentDashTime / dashTime);
 
             // updating position
-            player.transform.position = Vector2.Lerp(startPoint, destinationPoint, perc);
+            player.gameObject.GetComponent<Rigidbody2D>().MovePosition( Vector2.Lerp(startPoint, destinationPoint, perc));
             
 
             if (_currentDashTime >= dashTime)
@@ -110,7 +128,7 @@ public class Dash : MonoBehaviour
     IEnumerator Vel(Rigidbody2D rb, GameObject arrow,float dashSpeed,float dashTime)
     {
         yield return new WaitForSeconds(0f);
-        Vector2 dir = new Vector2(arrow.transform.up.x, 0).normalized * dashSpeed;
+        Vector2 dir = new Vector2(arrow.transform.up.x,arrow.transform.up.y).normalized * dashSpeed;
         //Debug.Log(dir);
         //Debug.Log(_isDashing);
         rb.velocity = dir;
