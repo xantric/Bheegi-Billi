@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
     private bool isFacingRight = true;
 
     private bool isWallSliding;
-    private float wallSlidingSpeed = 0.5f;
+    private float wallSlidingSpeed = 10f;
 
     private float CoyoteTime = 0.2f;
     private float CoyoteTimeCounter;
