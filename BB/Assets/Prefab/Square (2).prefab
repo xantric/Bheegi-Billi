@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8930942656251815752}
   - component: {fileID: 6127839336414924515}
   - component: {fileID: 3055531295144735871}
+  - component: {fileID: 8507204439906964454}
   m_Layer: 7
   m_Name: Square (2)
   m_TagString: Untagged
@@ -130,3 +131,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8507204439906964454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6855522987319313566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e7b2b6572fd78745851346766e5b5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  error: 30
+  jumpForce: 12
+  ds: {fileID: 0}

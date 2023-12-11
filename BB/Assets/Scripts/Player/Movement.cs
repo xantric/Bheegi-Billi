@@ -21,16 +21,30 @@ public class Movement : MonoBehaviour
     private float wallJumpingCounter;
     private float wallJumpingDuration = 0.4f;
     private Vector2 wallJumpingPower = new Vector2(8f, 16f);
+    public bool isDashtimer = false;
+    private float isDashTime = 0.5f;
+    private float dashtime = -0.1f;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform wallCheck;
+    [SerializeField] private Transform wallCheck2;
     [SerializeField] private LayerMask wallLayer;
 
     private void Update()
     {
+       
         horizontal = Input.GetAxisRaw("Horizontal");
+        if(isDashtimer)
+        {
+            dashtime = isDashTime;
+            isDashtimer = false;
+        }
+        else
+        {
+            dashtime -= Time.deltaTime;
+        }
         if(IsGrounded())
         {
             CoyoteTimeCounter = CoyoteTime;
@@ -70,7 +84,7 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isWallJumping)
+        if (!isWallJumping && dashtime<0f)
         {
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
         }
@@ -83,14 +97,15 @@ public class Movement : MonoBehaviour
 
     private bool IsWalled()
     {
-        return Physics2D.OverlapCircle(wallCheck.position, 0.1f, wallLayer);
+        return (Physics2D.OverlapCircle(wallCheck.position, 0.1f, wallLayer)|| Physics2D.OverlapCircle(wallCheck2.position, 0.1f, wallLayer));
     }
 
     private void WallSlide()
     {
-        if (IsWalled() && !IsGrounded() && horizontal != 0f)
-        {
+        if (IsWalled() && !IsGrounded() && (horizontal != 0f || dashtime>=0f))
+        {   
             isWallSliding = true;
+            Debug.Log(isWallSliding);
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallSlidingSpeed, float.MaxValue));
         }
         else

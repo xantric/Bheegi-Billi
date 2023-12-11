@@ -15,17 +15,17 @@ public class Dash : MonoBehaviour
     public float slowness = 5.0f;
     public GameObject arrow;
     public float dashSpeed = 10.0f;
-    public PlayerMovement1 playmov;
+    public Movement playmov;
 
     public float stamina = 3.0f;
-
+    private IEnumerator coroutine;
     public float targetMagnitude = 5f;
     public float lerpFactor = 0.5f; // Adjust this value as needed
     public float dashTime = 0.1f;
     Vector2 startPoint, destinationPoint;
 
     private float _currentDashTime = 0f;
-    private bool _isDashing = false;
+    public bool _isDashing = false;
 
     void Start()
     {
@@ -73,7 +73,8 @@ public class Dash : MonoBehaviour
                     startPoint = player.transform.position;
 
                     destinationPoint = startPoint + (Vector2)(arrow.transform.up.normalized * targetMagnitude);
-
+                     
+                    
                     JumpTime.instance.UseStamina();
                 }
             }
@@ -83,20 +84,37 @@ public class Dash : MonoBehaviour
         {
             // incrementing time
             _currentDashTime += Time.deltaTime;
-
+            
             // a value between 0 and 1
             float perc = Mathf.Clamp01(_currentDashTime / dashTime);
 
             // updating position
-            player.transform.position = Vector3.Lerp(startPoint, destinationPoint, perc);
+            player.transform.position = Vector2.Lerp(startPoint, destinationPoint, perc);
+            
 
             if (_currentDashTime >= dashTime)
             {
                 // dash finished
+               
                 _isDashing = false;
+                coroutine = Vel(rb, arrow, dashSpeed, dashTime);
+                StartCoroutine(coroutine);
                 player.transform.position = destinationPoint;
+                playmov.isDashtimer= true;
+                
             }
-        }
+        }  
 
+    }
+
+    IEnumerator Vel(Rigidbody2D rb, GameObject arrow,float dashSpeed,float dashTime)
+    {
+        yield return new WaitForSeconds(0f);
+        Vector2 dir = new Vector2(arrow.transform.up.x, 0).normalized * dashSpeed;
+        //Debug.Log(dir);
+        //Debug.Log(_isDashing);
+        rb.velocity = dir;
+        //Debug.Log("Called");
+        
     }
 }
