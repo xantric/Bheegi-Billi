@@ -20,22 +20,22 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         string username = PlayerPrefs.GetString("username");
-        int new_score = PlayerPrefs.GetInt("Score" + level_number);
-        PlayerPrefs.DeleteKey("Score" + level_number);
+        string new_score = PlayerPrefs.GetString("Time" + MainMenuController.level);
+        PlayerPrefs.DeleteKey("Time" + MainMenuController.level);
         var scores = GetHighScores().ToArray();
         for (int i = 0; i < scores.Length; i++)
         {
             if (scores[i].name == username)
             {
-                if(new_score> scores[i].score)
+                if(int.Parse(new_score)< scores[i].score)
                 {
-                    scores[i].score = new_score;
+                    //scores[i].score = new_score;
                 }
                 scoreUi.instantiate();
                 return;
             }
         }
-        AddScore(new Score(username, new_score));
+       // AddScore(new Score(username, new_score));
         scoreUi.instantiate();
     }
 

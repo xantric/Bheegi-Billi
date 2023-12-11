@@ -83,7 +83,7 @@ public class Dash : MonoBehaviour
                         }
                         if(hit.collider.gameObject.layer == 8)
                         {
-                            destinationPoint = hit.collider.gameObject.transform.position;
+                            destinationPoint = hit.point;
                         }
                     }
                     else
@@ -106,8 +106,10 @@ public class Dash : MonoBehaviour
             // a value between 0 and 1
             float perc = Mathf.Clamp01(_currentDashTime / dashTime);
 
+            float x_s = Mathf.SmoothStep(startPoint.x, destinationPoint.x, perc);
+            float y_s = Mathf.SmoothStep(startPoint.y, destinationPoint.y, perc);
             // updating position
-            player.gameObject.GetComponent<Rigidbody2D>().MovePosition( Vector2.Lerp(startPoint, destinationPoint, perc));
+            player.gameObject.GetComponent<Rigidbody2D>().MovePosition( new Vector2(x_s,y_s));
             
 
             if (_currentDashTime >= dashTime)
@@ -131,7 +133,7 @@ public class Dash : MonoBehaviour
         Vector2 dir = new Vector2(arrow.transform.up.x,arrow.transform.up.y).normalized * dashSpeed;
         //Debug.Log(dir);
         //Debug.Log(_isDashing);
-        rb.velocity = dir;
+        rb.AddForce(dir,ForceMode2D.Impulse);
         //Debug.Log("Called");
         
     }

@@ -20,7 +20,7 @@ public class Movement : MonoBehaviour
     private float wallJumpingTime = 0.2f;
     private float wallJumpingCounter;
     private float wallJumpingDuration = 0.4f;
-    private Vector2 wallJumpingPower = new Vector2(8f, 16f);
+    private Vector2 wallJumpingPower = new Vector2(16f, 16f);
     public bool isDashtimer = false;
     private float isDashTime = 0.5f;
     private float dashtime = -0.1f;
