@@ -8,9 +8,14 @@ public class Explosion : MonoBehaviour
     public float error = 30f;
     public float jumpForce = 12f;
     Rigidbody2D rb;
-    public Dash ds;
+    Dash ds;
     public bool isSideWall = false;
 
+    void Start()
+    {
+        GameObject rotatePoint = GameObject.FindGameObjectWithTag("RotatePoint");
+        ds = rotatePoint.GetComponent<Dash>();
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!isSideWall)

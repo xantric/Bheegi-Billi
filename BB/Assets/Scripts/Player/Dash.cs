@@ -83,7 +83,7 @@ public class Dash : MonoBehaviour
                         }
                         if(hit.collider.gameObject.layer == 8)
                         {
-                            destinationPoint = hit.collider.gameObject.transform.position;
+                            destinationPoint = hit.point;
                         }
                     }
                     else
