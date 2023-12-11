@@ -16,7 +16,9 @@ public class ScoreUi : MonoBehaviour
             var row = Instantiate(rowUi, transform).GetComponent<RowUi>();
             row.rank.text = (i + 1).ToString();
             row.name.text = scores[i].name;
-            row.score.text = scores[i].score.ToString();
+            float minutes = Mathf.FloorToInt(scores[i].score / 60);
+            float seconds = Mathf.FloorToInt(scores[i].score % 60);
+            row.score.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
     }
 }

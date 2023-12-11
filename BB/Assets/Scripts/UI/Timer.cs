@@ -3,7 +3,7 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    private float timer = 0f;
+    public float timer = 0f;
     public TextMeshProUGUI timerText; //Add reference to the timer TMPro gameObject
 
     void Update()

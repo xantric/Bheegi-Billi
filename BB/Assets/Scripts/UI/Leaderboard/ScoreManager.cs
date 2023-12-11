@@ -9,7 +9,7 @@ public class ScoreManager : MonoBehaviour
 {
     private ScoreData sd;
     public ScoreUi scoreUi;
-    public string level_number;
+    public int level_number;
     void Awake()
     {
         //PlayerPrefs.DeleteAll();
@@ -20,28 +20,28 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         string username = PlayerPrefs.GetString("username");
-        string new_score = PlayerPrefs.GetString("Time" + MainMenuController.level);
-        PlayerPrefs.DeleteKey("Time" + MainMenuController.level);
+        float new_score = PlayerPrefs.GetFloat("Time" + level_number);
+        PlayerPrefs.DeleteKey("Time" + level_number);
         var scores = GetHighScores().ToArray();
         for (int i = 0; i < scores.Length; i++)
         {
             if (scores[i].name == username)
             {
-                if(int.Parse(new_score)< scores[i].score)
+                if(new_score!=0 && new_score < scores[i].score )
                 {
-                    //scores[i].score = new_score;
+                    scores[i].score = new_score;
                 }
                 scoreUi.instantiate();
                 return;
             }
         }
-       // AddScore(new Score(username, new_score));
+        AddScore(new Score(username, new_score));
         scoreUi.instantiate();
     }
 
     public IEnumerable<Score> GetHighScores()
     {
-        return sd.scores.OrderByDescending(x => x.score);
+        return sd.scores.OrderBy(x => x.score);
     }
 
     public void AddScore(Score score)
