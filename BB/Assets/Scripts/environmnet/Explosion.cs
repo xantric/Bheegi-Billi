@@ -16,6 +16,7 @@ public class Explosion : MonoBehaviour
     public float jumpForce = 12f;
     Rigidbody2D rb;
     Dash ds;
+    
     public bool isSideWall = false;
 
     void Start()
@@ -35,15 +36,18 @@ public class Explosion : MonoBehaviour
             fire3 = Instantiate(flame, gameObject.transform.position + new Vector3(0f, 2f, 0.1f), Quaternion.Euler(0, 0, 90), gameObject.transform);
         }
 
-
-        fire1.Stop();
-        fire2.Stop();
-        fire3.Stop();
+        if (gameObject.layer == 6 || gameObject.layer == 7)
+        {
+            fire1.Stop();
+            fire2.Stop();
+            fire3.Stop();
+        }
         GameObject rotatePoint = GameObject.FindGameObjectWithTag("RotatePoint");
         ds = rotatePoint.GetComponent<Dash>();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
         if (!isSideWall)
         {
             if (ds._isDashing)
@@ -58,6 +62,10 @@ public class Explosion : MonoBehaviour
                     Func(fire3);
                 }
                 Destroy(gameObject, 2f);
+                if (collision.gameObject.CompareTag("water"))
+                {
+                    Destroy(gameObject, .5f);
+                }
             }
         }
     }
@@ -71,9 +79,9 @@ public class Explosion : MonoBehaviour
         { new GradientColorKey(color, 1.0f), new GradientColorKey(color, 1.0f) },
         new GradientAlphaKey[]
         { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(1.0f, 1.0f) });
-        Debug.Log(grad);
         col.color = grad;
     }
+    
 }  
 
 
