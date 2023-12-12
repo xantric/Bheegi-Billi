@@ -7,6 +7,7 @@ TagManager:
   - UpLayer
   - DownLayer
   - RotatePoint
+  - Jumpable
   layers:
   - Default
   - TransparentFX

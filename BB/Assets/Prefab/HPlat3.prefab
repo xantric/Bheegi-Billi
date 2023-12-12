@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6065355934145224624}
   m_Layer: 6
   m_Name: HPlat3
-  m_TagString: Untagged
+  m_TagString: Jumpable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7b2b6572fd78745851346766e5b5f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 0.8039216, g: 0.85882354, b: 0.043137256, a: 0.7607843}
   error: 15
   jumpForce: 12
   isSideWall: 0
