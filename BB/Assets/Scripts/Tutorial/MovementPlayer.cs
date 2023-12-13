@@ -113,7 +113,7 @@ public class MovementPlayer : MonoBehaviour
         }
         if(obstaclecollision == 7 && (!Appear)){
             SideWallMessage();
-            AfterLevel.SetActive(true);
+            Invoke("AfterLevel1", 1f);
         }
         if(obstaclecollision == 8){
             DisplayMessage("Tutorial Complete");
@@ -125,6 +125,11 @@ public class MovementPlayer : MonoBehaviour
     {
         DisplayMessage("Press A to go left");
         canMoveLeft = true;
+    }
+
+    void AfterLevel1()
+    {
+        AfterLevel.SetActive(true);
     }
 
     void DisplayJumpMessage()

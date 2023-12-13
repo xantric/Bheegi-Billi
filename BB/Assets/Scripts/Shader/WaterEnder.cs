@@ -13,10 +13,13 @@ public class WaterEnder : MonoBehaviour
 {
     // Start is called before the first frame update
     public Transform transformer,player;
+    public Movement movement;
+    public Dash dash;
     float timer,contact_timer=0f;
     float factor;
     public float growthRate = 3f;
     bool a = true, isInContact = false;
+    [SerializeField] Animator anime;
     void Start()
     {
         timer = 0f;
@@ -44,10 +47,20 @@ public class WaterEnder : MonoBehaviour
                 timer += Mathf.Min(growthRate * Time.deltaTime, 2.7f);
                 factor = Mathf.Pow(timer, 1.465f) + 140f;
             }
-
-
             transformer.localScale = new Vector3(transformer.localScale.x, factor, 0f);
         }
+        if (transformer.localScale.y + 0.3f > player.position.y)
+        {
+            contact_timer += Time.deltaTime;
+        }
+        else contact_timer = 0f;
+        if (contact_timer > 1f)
+        {
+            anime.SetInteger("state", -3);
+            movement.enabled = false;
+            dash.enabled = false;
+        }
+
     }
 
 }
