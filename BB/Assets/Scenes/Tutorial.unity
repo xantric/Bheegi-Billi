@@ -2500,7 +2500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4083625214776165665, guid: 8b1185827397dd94ea5510ec9ff1ee2f, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4958868305223245795, guid: 8b1185827397dd94ea5510ec9ff1ee2f, type: 3}
       propertyPath: m_RootOrder
@@ -4725,6 +4725,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4083625214776165665, guid: 8b1185827397dd94ea5510ec9ff1ee2f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4958868305223245795, guid: 8b1185827397dd94ea5510ec9ff1ee2f, type: 3}
       propertyPath: m_RootOrder
       value: -2
@@ -4776,6 +4780,14 @@ PrefabInstance:
     - target: {fileID: 4958868305223245795, guid: 8b1185827397dd94ea5510ec9ff1ee2f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7242408270213174415, guid: 8b1185827397dd94ea5510ec9ff1ee2f, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7242408270213174415, guid: 8b1185827397dd94ea5510ec9ff1ee2f, type: 3}
+      propertyPath: m_Size.y
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7242408270213174415, guid: 8b1185827397dd94ea5510ec9ff1ee2f, type: 3}
       propertyPath: m_IsTrigger
@@ -4895,6 +4907,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4083625214776165665, guid: 8b1185827397dd94ea5510ec9ff1ee2f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4958868305223245795, guid: 8b1185827397dd94ea5510ec9ff1ee2f, type: 3}
       propertyPath: m_RootOrder
       value: -2
@@ -4946,6 +4962,14 @@ PrefabInstance:
     - target: {fileID: 4958868305223245795, guid: 8b1185827397dd94ea5510ec9ff1ee2f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7242408270213174415, guid: 8b1185827397dd94ea5510ec9ff1ee2f, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7242408270213174415, guid: 8b1185827397dd94ea5510ec9ff1ee2f, type: 3}
+      propertyPath: m_Size.y
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7242408270213174415, guid: 8b1185827397dd94ea5510ec9ff1ee2f, type: 3}
       propertyPath: m_IsTrigger
@@ -5490,7 +5514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4083625214776165665, guid: 8b1185827397dd94ea5510ec9ff1ee2f, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4958868305223245795, guid: 8b1185827397dd94ea5510ec9ff1ee2f, type: 3}
       propertyPath: m_RootOrder
@@ -5543,6 +5567,22 @@ PrefabInstance:
     - target: {fileID: 4958868305223245795, guid: 8b1185827397dd94ea5510ec9ff1ee2f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7242408270213174415, guid: 8b1185827397dd94ea5510ec9ff1ee2f, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7242408270213174415, guid: 8b1185827397dd94ea5510ec9ff1ee2f, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7242408270213174415, guid: 8b1185827397dd94ea5510ec9ff1ee2f, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7242408270213174415, guid: 8b1185827397dd94ea5510ec9ff1ee2f, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.28
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
