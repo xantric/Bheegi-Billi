@@ -1,66 +1,53 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.SearchService;
+using UnityEngine.SceneManagement;
+
+
+//using System.Diagnostics.Eventing.Reader;
 using UnityEngine;
 
 public class WaterEnder : MonoBehaviour
 {
     // Start is called before the first frame update
     public Transform transformer,player;
-    float timer;
+    float timer,contact_timer=0f;
     float factor;
+    public float growthRate = 3f;
+    bool a = true, isInContact = false;
     void Start()
     {
-        timer = 0;
+        timer = 0f;
         factor = 0f;
     }
 
     // Update is called once per frame
     void Update()
-    {
-        timer += Time.deltaTime;
-        if (player.position.y <= 43.5f)
+    {   if (SceneManager.GetActiveScene().buildIndex == 8)
         {
-            factor = timer;
-        }
-        else if (player.position.y <= 63f)
-        {
-            factor = 2.0f * timer;
-        }
-        else if (player.position.y <= 150f)
-        {
-            factor = Mathf.Pow(timer, 2);
-        }
-        else if (player.position.y <= 167f)
-        {
-            factor = Mathf.Pow(timer, 3);
-        }
-        else
-        {
-            factor = Mathf.Exp(timer);
-        }
-        transformer.localScale = new Vector3(transformer.localScale.x, factor, 0f);
-    }
-    int determine_region(float y)
-    {
-        if (y < 43.5)
-        {
-            return 1;
-        }
-        else if (y < 63)
-        {
-            return 2;
-        }
-        else if (y < 150)
-        {
-            return 3;
-        }
-        else if (y < 167)
-        {
-            return 4;
-        }
-        else
-        {
-            return 5;
+            if (player.position.y < 143f)
+            {
+                timer += Mathf.Min(growthRate * Time.deltaTime, 2.7f);
+                factor = Mathf.Pow(timer, 1.465f);
+            }
+
+            else if (player.position.y > 143f)
+            {
+                if (a)
+                {
+                    factor = 140f;
+                    a = false;
+                    timer = 0;
+                }
+                timer += Mathf.Min(growthRate * Time.deltaTime, 2.7f);
+                factor = Mathf.Pow(timer, 1.465f) + 140f;
+            }
+
+
+            transformer.localScale = new Vector3(transformer.localScale.x, factor, 0f);
         }
     }
+
 }

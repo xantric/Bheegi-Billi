@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -20,7 +21,7 @@ public class Movement : MonoBehaviour
     private float wallJumpingTime = 0.2f;
     private float wallJumpingCounter;
     private float wallJumpingDuration = 0.4f;
-    private Vector2 wallJumpingPower = new Vector2(16f, 20f);
+    private Vector2 wallJumpingPower = new Vector2(8f, 25f);
     public bool isDashtimer = false;
     private float isDashTime = 0.5f;
     private float dashtime = -0.1f;
@@ -85,7 +86,7 @@ public class Movement : MonoBehaviour
 
         if (!isWallJumping)
         {
-           // Flip();
+           Flip();
         }
         setAnimeState();
         anime.SetInteger("state", Anime_State);
@@ -102,19 +103,21 @@ public class Movement : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
+        
     }
 
     private bool IsWalled()
     {
-        return (Physics2D.OverlapCircle(wallCheck.position, 0.1f, wallLayer)|| Physics2D.OverlapCircle(wallCheck2.position, 0.1f, wallLayer));
+        return (Physics2D.OverlapCircle(wallCheck.position, 0.5f, wallLayer)|| Physics2D.OverlapCircle(wallCheck2.position, 0.5f, wallLayer));
     }
 
     private void WallSlide()
     {
+        Debug.Log(IsWalled());
         if (IsWalled() && !IsGrounded() && (horizontal != 0f || dashtime>=0f))
         {   
             isWallSliding = true;
-            Debug.Log(isWallSliding);
+           
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallSlidingSpeed, float.MaxValue));
         }
         else
@@ -161,7 +164,7 @@ public class Movement : MonoBehaviour
         isWallJumping = false;
     }
 
-    /*private void Flip()
+    private void Flip()
     {
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
@@ -170,7 +173,7 @@ public class Movement : MonoBehaviour
             localScale.x *= -1f;
             transform.localScale = localScale;
         }
-    }*/
+    }
     private void setAnimeState()
     {
         if (IsGrounded())

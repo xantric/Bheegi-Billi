@@ -62,9 +62,10 @@ public class Explosion : MonoBehaviour
                     Func(fire3);
                 }
                 Destroy(gameObject, 2f);
-                if (collision.gameObject.CompareTag("water"))
+                if (collision.gameObject.CompareTag("Water"))
                 {
                     Destroy(gameObject, .5f);
+           
                 }
             }
         }
