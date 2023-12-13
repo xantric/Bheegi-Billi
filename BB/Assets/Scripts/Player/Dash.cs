@@ -26,9 +26,12 @@ public class Dash : MonoBehaviour
 
     private float _currentDashTime = 0f;
     public bool _isDashing = false;
+    private Animator Anime;
+
 
     void Start()
     {
+        Anime = player.GetComponent<Animator>();
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         timer = 3.0f;
     }
@@ -47,15 +50,18 @@ public class Dash : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0) && check == 0)
             {
+                Anime.SetInteger("state", 3);
                 Time.timeScale = 1f / slowness;
                 playmov.enabled = false;
                 check = 1;
                 arrow.SetActive(true);
                 rb.velocity = Vector2.zero;
+                
             }
 
             if (Input.GetMouseButtonUp(0) && check == 1)
             {
+                Anime.SetInteger("state", 4);
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, arrow.transform.up, targetMagnitude,targetlayers);
                 if (_isDashing == false)
                 {
@@ -91,8 +97,7 @@ public class Dash : MonoBehaviour
                         destinationPoint = startPoint + (Vector2)(arrow.transform.up.normalized * targetMagnitude);
 
                     }
-
-
+               
                     JumpTime.instance.UseStamina();
                 }
             }
@@ -115,7 +120,7 @@ public class Dash : MonoBehaviour
             if (_currentDashTime >= dashTime)
             {
                 // dash finished
-               
+                Anime.SetInteger("state", 0);
                 _isDashing = false;
                 coroutine = Vel(rb, arrow, dashSpeed, dashTime);
                 StartCoroutine(coroutine);

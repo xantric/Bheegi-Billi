@@ -24,6 +24,8 @@ public class Movement : MonoBehaviour
     public bool isDashtimer = false;
     private float isDashTime = 0.5f;
     private float dashtime = -0.1f;
+    private Animator anime;
+    private int Anime_State=0;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -31,6 +33,11 @@ public class Movement : MonoBehaviour
     [SerializeField] private Transform wallCheck;
     [SerializeField] private Transform wallCheck2;
     [SerializeField] private LayerMask wallLayer;
+
+    private void Start()
+    {
+        anime = GetComponent<Animator>();
+    }
 
     private void Update()
     {
@@ -55,7 +62,7 @@ public class Movement : MonoBehaviour
         }
         if (Input.GetButtonDown("Jump"))
         {
-            JumpBuferCounter = JumpBufferTime;
+            JumpBuferCounter = JumpBufferTime; 
         }
         else
         {
@@ -70,7 +77,7 @@ public class Movement : MonoBehaviour
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-            CoyoteTimeCounter = 0f; 
+            CoyoteTimeCounter = 0f;
         }
 
         WallSlide();
@@ -78,8 +85,10 @@ public class Movement : MonoBehaviour
 
         if (!isWallJumping)
         {
-            Flip();
+           // Flip();
         }
+        setAnimeState();
+        anime.SetInteger("state", Anime_State);
     }
 
     private void FixedUpdate()
@@ -152,7 +161,7 @@ public class Movement : MonoBehaviour
         isWallJumping = false;
     }
 
-    private void Flip()
+    /*private void Flip()
     {
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
@@ -160,6 +169,33 @@ public class Movement : MonoBehaviour
             Vector3 localScale = transform.localScale;
             localScale.x *= -1f;
             transform.localScale = localScale;
+        }
+    }*/
+    private void setAnimeState()
+    {
+        if (IsGrounded())
+        {
+            if (horizontal > 0)
+            {
+                Anime_State = 1;
+            }
+            else if (horizontal < 0)
+            {
+                Anime_State = -1;
+            }
+            else Anime_State = 0;
+        }
+        else if (!IsGrounded()|| IsWalled())
+        {
+            if (horizontal > 0)
+            {
+                Anime_State = 2;
+            }
+            else if (horizontal < 0)
+            {
+                Anime_State = -2;
+            }
+            else Anime_State = 0;
         }
     }
 }
