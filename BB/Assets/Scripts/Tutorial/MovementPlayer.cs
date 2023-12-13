@@ -39,9 +39,12 @@ public class MovementPlayer : MonoBehaviour
 
     bool isMovement = false;
     Rigidbody2D rb;
+    private Animator anime;
+    private int Anime_State;
 
     void Start()
     {
+        anime=GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         DisplayMessage("Press D to go right");
     }
@@ -49,6 +52,7 @@ public class MovementPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //setAnimeState();
         if(!isMovement)
         {    
             if(Input.GetKeyDown(KeyCode.D) && canMoveRight && checkL1){
@@ -243,6 +247,33 @@ public class MovementPlayer : MonoBehaviour
         if(collision.gameObject.CompareTag("groundTut") || collision.gameObject.CompareTag("breakableBlock"))
         {
             isGrounded = false;
+        }
+    }
+    private void setAnimeState()
+    {
+        if (isGrounded)
+        {
+            if (Input.GetKeyDown(KeyCode.A) )
+            {
+                Anime_State = -1;
+            }
+            else if (Input.GetKeyDown(KeyCode.D) )
+            {
+                Anime_State = 1;
+            }
+            else Anime_State = 0;
+        }
+        else if (!isGrounded)
+        {
+            if (Input.GetKeyDown(KeyCode.D)) 
+            {
+                Anime_State = 2;
+            }
+            else if( Input.GetKeyDown(KeyCode.A)) 
+            {
+                Anime_State = -2;
+            }
+            else Anime_State = 0;
         }
     }
     
