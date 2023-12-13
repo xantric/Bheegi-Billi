@@ -10,9 +10,9 @@ public class Movement : MonoBehaviour
     private bool isWallSliding;
     private float wallSlidingSpeed = 10f;
 
-    private float CoyoteTime = 0.2f;
+    private float CoyoteTime = 0.8f;
     private float CoyoteTimeCounter;
-    private float JumpBufferTime = 0.2f;
+    private float JumpBufferTime = 0.8f;
     private float JumpBuferCounter;
 
     private bool isWallJumping;
@@ -85,7 +85,7 @@ public class Movement : MonoBehaviour
 
         if (!isWallJumping)
         {
-           // Flip();
+           Flip();
         }
         setAnimeState();
         anime.SetInteger("state", Anime_State);
@@ -161,7 +161,7 @@ public class Movement : MonoBehaviour
         isWallJumping = false;
     }
 
-    /*private void Flip()
+    private void Flip()
     {
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
@@ -170,7 +170,7 @@ public class Movement : MonoBehaviour
             localScale.x *= -1f;
             transform.localScale = localScale;
         }
-    }*/
+    }
     private void setAnimeState()
     {
         if (IsGrounded())
