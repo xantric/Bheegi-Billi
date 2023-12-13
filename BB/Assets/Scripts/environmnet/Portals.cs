@@ -22,7 +22,7 @@ public class Portals : MonoBehaviour
         {
             if (Vector2.Distance(player.transform.position, transform.position) > 0.75f) //value must be changed as per the game dimensions to avoid infinite teleports
                 StartCoroutine(Portal_In());
-            Destroy(gameObject);
+            Invoke("Destroy(gameObject)", 1f);
         }
     }
     IEnumerator Portal_In()
