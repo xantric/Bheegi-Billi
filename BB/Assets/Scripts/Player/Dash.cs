@@ -84,7 +84,7 @@ public class Dash : MonoBehaviour
                         {
                             float d1 = hit.distance;
                             float d2 = (hit.collider.bounds.size).magnitude/2;
-                            float factori = 1 - d2/d1;
+                            float factori = 1 - d2/d1 +  0.05f;
                             destinationPoint = startPoint + factori*((Vector2)(hit.collider.gameObject.transform.position) - startPoint);
                         }
                         if(hit.collider.gameObject.layer == 8)
