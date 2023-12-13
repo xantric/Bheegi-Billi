@@ -10,9 +10,9 @@ public class Movement : MonoBehaviour
     private bool isWallSliding;
     private float wallSlidingSpeed = 10f;
 
-    private float CoyoteTime = 0.8f;
+    private float CoyoteTime = 0.2f;
     private float CoyoteTimeCounter;
-    private float JumpBufferTime = 0.8f;
+    private float JumpBufferTime = 0.2f;
     private float JumpBuferCounter;
 
     private bool isWallJumping;
@@ -20,7 +20,7 @@ public class Movement : MonoBehaviour
     private float wallJumpingTime = 0.2f;
     private float wallJumpingCounter;
     private float wallJumpingDuration = 0.4f;
-    private Vector2 wallJumpingPower = new Vector2(16f, 20f);
+    private Vector2 wallJumpingPower = new Vector2(8f, 25f);
     public bool isDashtimer = false;
     private float isDashTime = 0.5f;
     private float dashtime = -0.1f;
@@ -106,7 +106,7 @@ public class Movement : MonoBehaviour
 
     private bool IsWalled()
     {
-        return (Physics2D.OverlapCircle(wallCheck.position, 0.1f, wallLayer)|| Physics2D.OverlapCircle(wallCheck2.position, 0.1f, wallLayer));
+        return (Physics2D.OverlapCircle(wallCheck.position, 0.5f, wallLayer)|| Physics2D.OverlapCircle(wallCheck2.position, 0.5f, wallLayer));
     }
 
     private void WallSlide()
