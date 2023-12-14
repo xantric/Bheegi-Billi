@@ -10,6 +10,7 @@ public class Video : MonoBehaviour
     public GameObject text;
     private void Awake()
     {
+        //PlayerPrefs.DeleteKey("NotFirstTime");
         vp = GetComponent<VideoPlayer>();
         if (PlayerPrefs.HasKey("NotFirstTime"))
         {
@@ -27,12 +28,11 @@ public class Video : MonoBehaviour
         {
             text.SetActive(false);
         }
-        vp.loopPointReached += Vp_loopPointReached;
+        
+        if(vp.frame > 1620)
+        {
+            SceneManager.LoadScene("First Tutorial");
+        }
 
-    }
-
-    private void Vp_loopPointReached(VideoPlayer source)
-    {
-        SceneManager.LoadScene("Tutorial");
     }
 }
