@@ -19,7 +19,7 @@ public class WaterEnder : MonoBehaviour
     bool a = true, isInContact = false;
     [SerializeField] Animator anime;
     [SerializeField] AudioSource death;
-    [SerializeField] AudioSource bg;
+   // [SerializeField] AudioSource bg;
 
     void Start()
     {
