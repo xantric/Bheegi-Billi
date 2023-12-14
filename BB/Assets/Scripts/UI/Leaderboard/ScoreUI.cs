@@ -10,8 +10,14 @@ public class ScoreUi : MonoBehaviour
 
     public void instantiate()
     {
-        var scores = scoreManager.GetHighScores().ToArray();
-        for (int i = 0; i < scores.Length; i++)
+        var scores = scoreManager.GetHighScores().ToList();
+        int length = scores.Count;
+        while (length > 5)
+        {
+            scores.RemoveAt(length-1);
+            length = scores.Count;
+        }
+        for (int i = 0; i < scores.Count; i++)
         {
             var row = Instantiate(rowUi, transform).GetComponent<RowUi>();
             row.rank.text = (i + 1).ToString();

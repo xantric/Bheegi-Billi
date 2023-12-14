@@ -16,7 +16,7 @@ public class LevelLocker : MonoBehaviour
         sd = JsonUtility.FromJson<ScoreData>(json);
         foreach (Score score in sd.scores)
         {
-            if (score.name == PlayerPrefs.GetString("username") || PlayerPrefs.HasKey("Time" + 1))
+            if (score.name == PlayerPrefs.GetString("username"))
             {
                 Level2_Button.enabled = true;
                 button.enabled = true;
