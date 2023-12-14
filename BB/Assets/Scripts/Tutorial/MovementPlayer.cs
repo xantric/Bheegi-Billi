@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class MovementPlayer : MonoBehaviour
 {   
@@ -121,7 +122,21 @@ public class MovementPlayer : MonoBehaviour
         }
         if(obstaclecollision == 8){
             DisplayMessage("Tutorial Complete");
-            Button.SetActive(true);
+            //Button.SetActive(true);
+            Invoke("Ended", 3f);
+        }
+    }
+
+    void Ended()
+    {
+        if (SceneManager.GetActiveScene().name == "First Tutorial")
+        {
+            SceneManager.LoadScene("Main Menu");
+            PlayerPrefs.SetString("NotFirstTime", "Done");
+        }
+        else
+        {
+            SceneManager.LoadScene("Time Trials");
         }
     }
 

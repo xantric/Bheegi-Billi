@@ -14,7 +14,6 @@ public class MainMenuController : MonoBehaviour
     {
         // Load the main game scene (assuming it's at build index 1)
         SceneManager.LoadScene(1);
-
     }
 
     public void OpenLevels()
@@ -45,22 +44,15 @@ public class MainMenuController : MonoBehaviour
     public void OpenLevel1()
     {
         // Load the main game scene (assuming it's at build index 1)
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(7);
         level = 1;
     }
 
     public void OpenLevel2()
     {
         // Load the main game scene (assuming it's at build index 1)
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(8);
         level = 2;
-    }
-
-    public void OpenLevel3()
-    {
-        // Load the main game scene (assuming it's at build index 1)
-        SceneManager.LoadScene(6);
-        level = 3;
     }
 
     public void QuitGame()
