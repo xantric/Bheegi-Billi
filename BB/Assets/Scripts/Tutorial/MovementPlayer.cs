@@ -68,7 +68,7 @@ public class MovementPlayer : MonoBehaviour
                     DisplayDashMessage();
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.A) && canMoveLeft && checkJ1)
+             if (Input.GetKeyDown(KeyCode.A) && canMoveLeft && checkJ1)
             {
                 checkJ1 = false;
                 LeftMovement();
@@ -81,7 +81,7 @@ public class MovementPlayer : MonoBehaviour
                 if(obstaclecollision == 3 ){
                     DisplayDashMessage();
                 }
-            }else if(Input.GetKeyDown(KeyCode.Space) && canJump && checkD1)
+            } if(Input.GetKeyDown(KeyCode.Space) && canJump && checkD1)
             {
                 checkD1 = false;
                 if(isGrounded)
@@ -96,7 +96,7 @@ public class MovementPlayer : MonoBehaviour
                 if(obstaclecollision == 3 ){
                     DisplayDashMessage();
                 }
-            }else if(Input.GetMouseButtonDown(0) && canDash && checkA1)
+            } if(Input.GetMouseButtonDown(0) && canDash && checkA1)
             {   
                 obstaclecollision = 4;
                 checkA1 = false;
@@ -129,14 +129,8 @@ public class MovementPlayer : MonoBehaviour
 
     void Ended()
     {
-        if (SceneManager.GetActiveScene().name == "First Tutorial")
         {
-            SceneManager.LoadScene("Main Menu");
-            PlayerPrefs.SetString("NotFirstTime", "Done");
-        }
-        else
-        {
-            SceneManager.LoadScene("Time Trials");
+            SceneManager.LoadScene(2);
         }
     }
 

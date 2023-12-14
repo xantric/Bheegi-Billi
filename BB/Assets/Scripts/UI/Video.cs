@@ -10,12 +10,7 @@ public class Video : MonoBehaviour
     public GameObject text;
     private void Awake()
     {
-        //PlayerPrefs.DeleteKey("NotFirstTime");
         vp = GetComponent<VideoPlayer>();
-        if (PlayerPrefs.HasKey("NotFirstTime"))
-        {
-            SceneManager.LoadScene("Main Menu");
-        }
     }
 
     private void Update()
@@ -31,7 +26,7 @@ public class Video : MonoBehaviour
         
         if(vp.frame > 1620)
         {
-            SceneManager.LoadScene("First Tutorial");
+            SceneManager.LoadScene(1);
         }
 
     }

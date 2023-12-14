@@ -1,4 +1,4 @@
-using System;
+    using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -28,7 +28,7 @@ public class WaterEnder : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   if (SceneManager.GetActiveScene().name=="Level 2")
+    {   if (SceneManager.GetActiveScene().name == "Level 2")
         {
             if (player.position.y < 143f)
             {
