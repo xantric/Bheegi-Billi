@@ -1,8 +1,6 @@
     using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.SearchService;
 using UnityEngine.SceneManagement;
 
 
@@ -64,6 +62,8 @@ public class WaterEnder : MonoBehaviour
             anime.SetInteger("state", -3);
             movement.enabled = false;
             dash.enabled = false;
+
+            SceneManager.LoadScene(11);
         }
 
     }

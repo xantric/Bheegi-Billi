@@ -63,7 +63,7 @@ public class MainMenuController : MonoBehaviour
 
     public void OpenStory()
     {
-        SceneManager.LoadScene(11);
+        SceneManager.LoadScene(10);
     }
 
     public void QuitGame()
