@@ -28,7 +28,7 @@ public class WaterEnder : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   if (SceneManager.GetActiveScene().buildIndex == 8)
+    {   if (SceneManager.GetActiveScene().name == "Level 2")
         {
             if (player.position.y < 143f)
             {
