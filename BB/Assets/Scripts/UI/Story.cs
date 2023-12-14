@@ -8,6 +8,8 @@ public class Story : MonoBehaviour
 {
     VideoPlayer vp;
 
+    public Animator transition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +21,14 @@ public class Story : MonoBehaviour
     {
         if(vp.frame > 1620)
         {
-            SceneManager.LoadScene(1);
+            StartCoroutine(LoadLevel(1));
         }
+    }
+
+    IEnumerator LoadLevel(int levelIndex)
+    {
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(levelIndex);
     }
 }

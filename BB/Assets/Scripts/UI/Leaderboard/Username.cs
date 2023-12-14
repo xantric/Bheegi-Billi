@@ -9,6 +9,8 @@ public class Username: MonoBehaviour
 
     public TMP_InputField user_input;
 
+    public Animator transition;
+
     private void Start()
     {
         if(PlayerPrefs.HasKey("username"))
@@ -19,7 +21,14 @@ public class Username: MonoBehaviour
         if (!string.IsNullOrEmpty(user_input.text))
         {
             PlayerPrefs.SetString("username", user_input.text);
-            SceneManager.LoadScene(2);
+            StartCoroutine(LoadLevel(2));
         }
+    }
+
+    IEnumerator LoadLevel(int levelIndex)
+    {
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(levelIndex);
     }
 }

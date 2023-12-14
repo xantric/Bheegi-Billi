@@ -8,6 +8,8 @@ public class EndStory : MonoBehaviour
 {
     VideoPlayer vp;
 
+    public Animator transition;
+
     private void Start()
     {
         vp = GetComponent<VideoPlayer>();
@@ -17,7 +19,14 @@ public class EndStory : MonoBehaviour
     {
         if (vp.frame > 940)
         {
-            SceneManager.LoadScene(1);
+            StartCoroutine(LoadLevel(1));
         }
+    }
+
+    IEnumerator LoadLevel(int levelIndex)
+    {
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(levelIndex);
     }
 }
