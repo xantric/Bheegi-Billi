@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/You Lose.unity
     guid: 756514b8f54323a48a4faa18b5a8c183
+  - enabled: 1
+    path: Assets/Scenes/End Story.unity
+    guid: 0982331156f0f404a8a9da3b30f89806
   m_configObjects: {}

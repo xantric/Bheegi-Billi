@@ -165,7 +165,7 @@ public class MovementPlayer : MonoBehaviour
 
     void SideWallMessage()
     {
-        DisplayMessage("You can jump from side walls also.");
+        DisplayMessage("GO into the portal");
     } 
 
     void BreakBlockMessage()

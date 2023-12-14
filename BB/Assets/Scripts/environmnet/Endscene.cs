@@ -10,6 +10,13 @@ public class Endscene : MonoBehaviour
     void OnTriggerEnter2D(Collider2D otherCollider)
     {
         PlayerPrefs.SetFloat("Time" + MainMenuController.level,timer.timer);
-        SceneManager.LoadScene(9);
+        if (MainMenuController.level == 1)
+        {
+            SceneManager.LoadScene(9);
+        }
+        else
+        {
+            SceneManager.LoadScene(12);
+        }
     }
 }

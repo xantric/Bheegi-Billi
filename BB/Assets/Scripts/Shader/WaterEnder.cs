@@ -31,13 +31,13 @@ public class WaterEnder : MonoBehaviour
     void Update()
     {   if (SceneManager.GetActiveScene().name == "Level 2")
         {
-            if (player.position.y < 143f)
+            if (player.position.y < 125f)
             {
                 timer += Mathf.Min(growthRate * Time.deltaTime, 2.7f);
                 factor = Mathf.Pow(timer, 1.465f);
             }
 
-            else if (player.position.y > 143f)
+            else if (player.position.y > 125f)
             {
                 if (a)
                 {
@@ -46,7 +46,7 @@ public class WaterEnder : MonoBehaviour
                     timer = 0;
                 }
                 timer += Mathf.Min(growthRate * Time.deltaTime, 2.7f);
-                factor = Mathf.Pow(timer, 1.465f) + 140f;
+                factor = Mathf.Pow(timer, 1.35f) + 140f;
             }
         }
         if (SceneManager.GetActiveScene().name=="Level 1")

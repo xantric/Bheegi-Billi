@@ -41,7 +41,7 @@ public class Portals : MonoBehaviour
         player.transform.position = destination.position;
 
 
-        rb.velocity = new Vector2(velocityScale.x * velocity.x, velocityScale.y * velocity.y);
+        rb.velocity = new Vector2(Mathf.Sign(velocityScale.x) * velocity.x, Mathf.Sign(velocityScale.y) * velocity.y);
 
     }
     IEnumerator MoveInPortal()
