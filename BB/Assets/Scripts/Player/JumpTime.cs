@@ -30,19 +30,17 @@ public class JumpTime : MonoBehaviour
         slider.value = maxStamina;
         i.type = Image.Type.Filled;
         i.fillMethod = Image.FillMethod.Radial360;
-
-        // Set the radial fill origin to the bottom
         i.fillOrigin = (int)Image.Origin360.Bottom;
     }
 
     private void Update()
     {
         slider.value = sl.timer;
-        /*i.fillAmount = sl.timer;*/
-        float normalizedValue = Mathf.Clamp01(slider.value);
-
-        // Update the fill amount based on the slider value
-        i.fillAmount = normalizedValue;
+       // i.fillAmount = sl.timer;
+        float normalizedValue = Mathf.Clamp01(sl.timer);
+        // i.fillAmount = normalizedValue;
+        float lerpValue = Mathf.Clamp01(sl.timer / 3f);  // 3 seconds fill time
+        i.fillAmount = Mathf.Lerp(0f, normalizedValue, lerpValue);
     }
     public void UseStamina()
     {
