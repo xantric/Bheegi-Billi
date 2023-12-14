@@ -28,7 +28,7 @@ public class WaterEnder : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   if (SceneManager.GetActiveScene().buildIndex == 8)
+    {   if (SceneManager.GetActiveScene().name=="Level 2")
         {
             if (player.position.y < 143f)
             {
@@ -49,7 +49,7 @@ public class WaterEnder : MonoBehaviour
             }
             transformer.localScale = new Vector3(transformer.localScale.x, factor, 0f);
         }
-        if (SceneManager.GetActiveScene().buildIndex == 7)
+        if (SceneManager.GetActiveScene().name=="Level 1")
         {
             timer += Mathf.Min(growthRate * Time.deltaTime, 3.0f);
             factor = timer * 2.0f;
