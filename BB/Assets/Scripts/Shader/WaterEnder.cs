@@ -45,12 +45,12 @@ public class WaterEnder : MonoBehaviour
                 timer += Mathf.Min(growthRate * Time.deltaTime, 2.7f);
                 factor = Mathf.Pow(timer, 1.465f) + 140f;
             }
-            transformer.localScale = new Vector3(transformer.localScale.x, factor, 0f);
         }
         if (SceneManager.GetActiveScene().name=="Level 1")
         {
-            timer += Mathf.Min(growthRate * Time.deltaTime, 3.0f);
-            factor = timer * 2.0f;
+            Debug.Log("Level 1 reached");
+            // timer += Time.deltaTime;
+            factor+=Time.deltaTime*4.0f;
         }
         if (transformer.localScale.y + 0.3f > player.position.y)
         {
@@ -65,7 +65,7 @@ public class WaterEnder : MonoBehaviour
 
             SceneManager.LoadScene(11);
         }
-
+        transformer.localScale = new Vector3(transformer.localScale.x, factor, 0f);
     }
 
 }

@@ -50,15 +50,23 @@ public class MainMenuController : MonoBehaviour
     public void OpenLevel1()
     {
         // Load the main game scene (assuming it's at build index 1)
-        SceneManager.LoadScene(7);
         level = 1;
+        SceneManager.LoadScene(7);
     }
 
     public void OpenLevel2()
     {
         // Load the main game scene (assuming it's at build index 1)
-        SceneManager.LoadScene(8);
         level = 2;
+        SceneManager.LoadScene(8);
+    }
+
+    public void Retry()
+    {
+        if(level == 1)
+            SceneManager.LoadScene(7);
+        if(level == 2)
+            SceneManager.LoadScene(8);
     }
 
     public void OpenStory()
