@@ -18,6 +18,9 @@ public class WaterEnder : MonoBehaviour
     public float growthRate = 3f;
     bool a = true, isInContact = false;
     [SerializeField] Animator anime;
+    [SerializeField] AudioSource death;
+    [SerializeField] AudioSource bg;
+
     void Start()
     {
         timer = 0f;
@@ -59,13 +62,18 @@ public class WaterEnder : MonoBehaviour
         else contact_timer = 0f;
         if (contact_timer > 1f)
         {
+            death.Play();
             anime.SetInteger("state", -3);
             movement.enabled = false;
             dash.enabled = false;
-
-            SceneManager.LoadScene(11);
+            Invoke("Death", 2f);
+            
         }
         transformer.localScale = new Vector3(transformer.localScale.x, factor, 0f);
+    }
+    void Death()
+    {
+        SceneManager.LoadScene(11);
     }
 
 }

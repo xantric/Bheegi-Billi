@@ -1,5 +1,7 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -7,11 +9,34 @@ public class GameManager : MonoBehaviour
     public GameObject pauseMenuUI; //the reference to the PauseMenuUI
     public GameObject sceneUI;
     public static bool gameIsPaused=false;
+
+    [SerializeField] Slider musicSlider;
+    [SerializeField] Slider sfxSlider;
+    [SerializeField] AudioMixer audioMixer;
     void Awake()
     {
         if (instance == null)
         {
             instance = this;
+        }
+    }
+    private void Start()
+    {
+        if (PlayerPrefs.HasKey("musicvolume"))
+        {
+            LoadVolume();
+        }
+        else
+        {
+            SetMusicVolume();
+        }
+        if (PlayerPrefs.HasKey("sfxvolume"))
+        {
+            LoadSFXVolume();
+        }
+        else
+        {
+            SetMusicVolume();
         }
     }
     void Update(){
@@ -44,5 +69,31 @@ public class GameManager : MonoBehaviour
     public void QuitGame(){
         Debug.Log("Quitting game...");
         Application.Quit();
+    }
+    public void SetMusicVolume()
+    {
+        float musicvolume = musicSlider.value;
+        audioMixer.SetFloat("music", 20 * Mathf.Log10(musicvolume));
+        PlayerPrefs.SetFloat("musicvolume", musicvolume);
+    }
+
+    public void LoadVolume()
+    {
+        musicSlider.value = PlayerPrefs.GetFloat("musicvolume");
+
+        SetMusicVolume();
+    }
+    public void SetSFXVolume()
+    {
+        float sfxvolume = sfxSlider.value;
+        audioMixer.SetFloat("sfx", 20 * Mathf.Log10(sfxvolume));
+        PlayerPrefs.SetFloat("sfxvolume", sfxvolume);
+    }
+
+    public void LoadSFXVolume()
+    {
+        sfxSlider.value = PlayerPrefs.GetFloat("sfxvolume");
+
+        SetSFXVolume();
     }
 }

@@ -142,9 +142,10 @@ GameObject:
   - component: {fileID: 6273298642273299129}
   - component: {fileID: 6273298642273299131}
   - component: {fileID: 6273298642273299130}
+  - component: {fileID: 2969130302134123645}
   m_Layer: 4
   m_Name: WaterReflection
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,9 +158,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6273298642273299133}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.88, y: 7.2695, z: -1}
-  m_LocalScale: {x: 0.54398304, y: 3.5, z: 1}
+  m_LocalScale: {x: 5.3, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6273298641869802982}
@@ -183,7 +184,7 @@ MonoBehaviour:
   hasConstantWaves: 1
   waveAmplitude: 0.03
   waveSpeed: 4
-  waveStep: 2
+  waveStep: 6
   numSprings: 20
   spacing: 1
   springConstant: 0.02
@@ -320,7 +321,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 84559311
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!253 &6273298642273299131
 BuoyancyEffector2D:
@@ -371,7 +372,7 @@ BoxCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 1
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 9.5, y: 0.49999997}
   m_SpriteTilingProperty:
@@ -386,3 +387,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 19, y: 0.99999994}
   m_EdgeRadius: 0
+--- !u!114 &2969130302134123645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6273298642273299133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7de4b954a21c3754b9e43a272aebf6a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformer: {fileID: 6273298642273299135}
+  player: {fileID: 0}
+  movement: {fileID: 0}
+  dash: {fileID: 0}
+  growthRate: 1.1
+  anime: {fileID: 0}
+  death: {fileID: 0}
+  bg: {fileID: 0}

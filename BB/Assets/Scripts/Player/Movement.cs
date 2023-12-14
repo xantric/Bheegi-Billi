@@ -35,6 +35,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private Transform wallCheck2;
     [SerializeField] private LayerMask wallLayer;
 
+    [SerializeField]private AudioSource jump_a;
+
     private void Start()
     {
         anime = GetComponent<Animator>();
@@ -63,7 +65,8 @@ public class Movement : MonoBehaviour
         }
         if (Input.GetButtonDown("Jump"))
         {
-            JumpBuferCounter = JumpBufferTime; 
+            jump_a.Play();
+            JumpBuferCounter = JumpBufferTime;
         }
         else
         {

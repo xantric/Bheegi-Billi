@@ -16,12 +16,14 @@ public class Explosion : MonoBehaviour
     public float jumpForce = 12f;
     Rigidbody2D rb;
     Dash ds;
+    private AudioSource burn;
     
     public bool isSideWall = false;
 
     void Start()
     {
         flame = GameObject.Find("Particle System").GetComponent<ParticleSystem>();
+        burn = GetComponent<AudioSource>();
         Transform pos = GetComponent<Transform>();
         if (gameObject.layer == 6)
         {
@@ -73,6 +75,7 @@ public class Explosion : MonoBehaviour
     private void Func(ParticleSystem fire)
     {
         fire.Play();
+        burn.Play();
         var col = fire.colorOverLifetime;
 
         Gradient grad = new Gradient();

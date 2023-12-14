@@ -50,7 +50,7 @@ public class Dash : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0) && check == 0)
             {
-                Anime.SetInteger("state", 3);
+                Anime.SetInteger("state", 1);
                 Time.timeScale = 1f / slowness;
                 playmov.enabled = false;
                 check = 1;
@@ -61,7 +61,7 @@ public class Dash : MonoBehaviour
 
             if (Input.GetMouseButtonUp(0) && check == 1)
             {
-                Anime.SetInteger("state", 4);
+                Anime.SetInteger("state", 2);
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, arrow.transform.up, targetMagnitude,targetlayers);
                 if (_isDashing == false)
                 {
