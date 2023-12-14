@@ -3051,6 +3051,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 4083625214776165665, guid: 8b1185827397dd94ea5510ec9ff1ee2f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5b30ee993e18bf540be9183131ef12ac, type: 3}
     - target: {fileID: 4958868305223245795, guid: 8b1185827397dd94ea5510ec9ff1ee2f, type: 3}
       propertyPath: m_LocalScale.x
       value: 32
@@ -5289,6 +5293,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4083625214776165665, guid: 8b1185827397dd94ea5510ec9ff1ee2f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5b30ee993e18bf540be9183131ef12ac, type: 3}
     - target: {fileID: 4958868305223245795, guid: 8b1185827397dd94ea5510ec9ff1ee2f, type: 3}
       propertyPath: m_LocalScale.x
       value: 30
@@ -19608,8 +19616,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 00:00
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 02d56faabd7cccf4b9c6ca014c996420, type: 2}
-  m_sharedMaterial: {fileID: 9068218148782981035, guid: 02d56faabd7cccf4b9c6ca014c996420, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
