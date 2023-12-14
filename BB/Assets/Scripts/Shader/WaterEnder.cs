@@ -49,6 +49,11 @@ public class WaterEnder : MonoBehaviour
             }
             transformer.localScale = new Vector3(transformer.localScale.x, factor, 0f);
         }
+        if (SceneManager.GetActiveScene().buildIndex == 7)
+        {
+            timer += Mathf.Min(growthRate * Time.deltaTime, 3.0f);
+            factor = timer * 2.0f;
+        }
         if (transformer.localScale.y + 0.3f > player.position.y)
         {
             contact_timer += Time.deltaTime;
