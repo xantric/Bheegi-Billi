@@ -397,7 +397,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Levels
+  m_text: Main Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02d56faabd7cccf4b9c6ca014c996420, type: 2}
   m_sharedMaterial: {fileID: 9068218148782981035, guid: 02d56faabd7cccf4b9c6ca014c996420, type: 2}
@@ -731,7 +731,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1068060941}
         m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
-        m_MethodName: OpenLevels
+        m_MethodName: OpenMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
