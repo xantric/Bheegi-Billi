@@ -7,10 +7,11 @@ public class LevelLocker : MonoBehaviour
 {
     private ScoreData sd;
     public Button Level2_Button;
+    public ButtonColorChange button;
     void Awake()
     {
         Level2_Button.enabled = false;
-        Level2_Button.image.color = Color.grey;
+        button.enabled = false;
         var json = PlayerPrefs.GetString("scores" + 1, "{}");
         sd = JsonUtility.FromJson<ScoreData>(json);
         foreach (Score score in sd.scores)
@@ -18,7 +19,7 @@ public class LevelLocker : MonoBehaviour
             if (score.name == PlayerPrefs.GetString("username") || PlayerPrefs.HasKey("Time" + 1))
             {
                 Level2_Button.enabled = true;
-                Level2_Button.image.color = Color.black;
+                button.enabled = true;
             }
         }
     }
