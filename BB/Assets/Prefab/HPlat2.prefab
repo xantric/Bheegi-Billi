@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4144566788762767489}
   - component: {fileID: 3294437373186502184}
   - component: {fileID: -1984572489644567066}
+  - component: {fileID: -3716772909293612968}
   m_Layer: 6
   m_Name: HPlat2
   m_TagString: Untagged
@@ -244,3 +245,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-3716772909293612968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2733229881916852390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1b950787d570ea4faa6f0b0625b2c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

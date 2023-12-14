@@ -63,17 +63,18 @@ public class Explosion : MonoBehaviour
                     Func(fire2);
                     Func(fire3);
                 }
-                Destroy(gameObject, 2f);
-                if (collision.gameObject.CompareTag("Water"))
-                {
-                    Destroy(gameObject, .5f);
-           
-                }
+                Destroy(gameObject, 2f); 
             }
+        }
+        if (collision.gameObject.CompareTag("Water"))
+        {
+            Debug.Log("fuck unity");
+            Destroy(gameObject);
         }
     }
     private void Func(ParticleSystem fire)
     {
+        //if(fire.transform.position.y<)
         fire.Play();
         burn.Play();
         var col = fire.colorOverLifetime;
@@ -86,6 +87,7 @@ public class Explosion : MonoBehaviour
         col.color = grad;
     }
     
+
 }  
 
 

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3055531295144735871}
   - component: {fileID: 8507204439906964454}
   - component: {fileID: 566827088957224257}
+  - component: {fileID: -122204919072489517}
   m_Layer: 7
   m_Name: Vertical Platform
   m_TagString: Untagged
@@ -244,3 +245,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-122204919072489517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6855522987319313566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1b950787d570ea4faa6f0b0625b2c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
