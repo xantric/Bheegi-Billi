@@ -21,6 +21,8 @@ public class WaterEnder : MonoBehaviour
     [SerializeField] AudioSource death;
    // [SerializeField] AudioSource bg;
 
+   public Animator transition;
+
     void Start()
     {
         timer = 0f;
@@ -73,7 +75,14 @@ public class WaterEnder : MonoBehaviour
     }
     void Death()
     {
-        SceneManager.LoadScene(11);
+        StartCoroutine(LoadLevel(11));
+    }
+
+    IEnumerator LoadLevel(int levelIndex)
+    {
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(levelIndex);
     }
     
 }

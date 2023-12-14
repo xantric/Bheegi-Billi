@@ -9,6 +9,8 @@ public class Endscene : MonoBehaviour
     // Start is called before the first frame update
     private ScoreData sd;
     public Timer timer;
+
+    public Animator transition;
     void Awake()
     {
         //PlayerPrefs.DeleteAll();
@@ -33,11 +35,11 @@ public class Endscene : MonoBehaviour
         SaveScore();
         if (MainMenuController.level == 1)
         {
-            SceneManager.LoadScene(9);
+            StartCoroutine(LoadLevel(9));
         }
         else
         {
-            SceneManager.LoadScene(12);
+            StartCoroutine(LoadLevel(12));
         }
     }
 
@@ -52,5 +54,12 @@ public class Endscene : MonoBehaviour
         var json = JsonUtility.ToJson(sd);
         Debug.Log(json);
         PlayerPrefs.SetString("scores" + MainMenuController.level, json);
+    }
+
+    IEnumerator LoadLevel(int levelIndex)
+    {
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(levelIndex);
     }
 }
