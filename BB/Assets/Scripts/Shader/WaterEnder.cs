@@ -64,6 +64,7 @@ public class WaterEnder : MonoBehaviour
         else contact_timer = 0f;
         if (contact_timer > 1f)
         {
+            Time.timeScale = 1f;
             death.Play();
             anime.SetInteger("state", -3);
             movement.enabled = false;
