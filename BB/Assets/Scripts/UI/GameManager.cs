@@ -61,6 +61,15 @@ public class GameManager : MonoBehaviour
         Time.timeScale=0f;
         gameIsPaused=true;
     }
+
+    public void Restart1()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+
+    }
+
     public void LoadMenu(){
         Time.timeScale=1f;
         Debug.Log("Loading menu...");
