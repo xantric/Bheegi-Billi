@@ -43,6 +43,8 @@ public class MovementPlayer : MonoBehaviour
     private Animator anime;
     private int Anime_State;
 
+    public Animator transition;
+
     void Start()
     {
         anime=GetComponent<Animator>();
@@ -123,14 +125,14 @@ public class MovementPlayer : MonoBehaviour
         if(obstaclecollision == 8){
             DisplayMessage("Tutorial Complete");
             //Button.SetActive(true);
-            Invoke("Ended", 3f);
+            Invoke("Ended", 2f);
         }
     }
 
     void Ended()
     {
         {
-            SceneManager.LoadScene(2);
+            StartCoroutine(LoadLevel(2));
         }
     }
 
@@ -284,6 +286,16 @@ public class MovementPlayer : MonoBehaviour
             }
             else Anime_State = 0;
         }
+    }
+
+    IEnumerator LoadLevel(int levelIndex)
+    {
+        // Play animation
+        transition.SetTrigger("Start");
+        // Wait
+        yield return new WaitForSeconds(0.5f);
+        // Load scene
+        SceneManager.LoadScene(levelIndex);
     }
     
 }

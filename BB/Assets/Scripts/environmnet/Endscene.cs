@@ -13,13 +13,13 @@ public class Endscene : MonoBehaviour
     public Animator transition;
     void Awake()
     {
-        //PlayerPrefs.DeleteAll();
         var json = PlayerPrefs.GetString("scores" + MainMenuController.level, "{}");
         sd = JsonUtility.FromJson<ScoreData>(json);
     }
 
     void OnTriggerEnter2D(Collider2D otherCollider)
     {
+        bool IsRegistered = false;
         string username = PlayerPrefs.GetString("username");
         for (int i = 0; i < sd.scores.Count; i++)
         {
@@ -28,10 +28,15 @@ public class Endscene : MonoBehaviour
                 if (timer.timer != 0 && timer.timer < sd.scores[i].score)
                 {
                     sd.scores[i].score = timer.timer;
+                    IsRegistered = true;
+
                 }
             }
         }
+        if(!IsRegistered)
+        {
         AddScore(new Score(username, timer.timer));
+        }
         SaveScore();
         if (MainMenuController.level == 1)
         {
@@ -58,8 +63,9 @@ public class Endscene : MonoBehaviour
 
     IEnumerator LoadLevel(int levelIndex)
     {
+        Debug.Log("done dan");
         transition.SetTrigger("Start");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.25f);
         SceneManager.LoadScene(levelIndex);
     }
 }

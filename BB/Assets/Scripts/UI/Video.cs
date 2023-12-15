@@ -17,7 +17,7 @@ public class Video : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetAxisRaw("Submit") != 0)
+        if(Input.GetAxisRaw("Submit") != 0 && vp.frame < 1500)
         {
             vp.frame = 1500;
         }

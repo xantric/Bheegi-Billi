@@ -21,7 +21,7 @@ public class Story : MonoBehaviour
     {
         if(vp.frame > 1620)
         {
-            StartCoroutine(LoadLevel(1));
+            StartCoroutine(LoadLevel(2));
         }
     }
 

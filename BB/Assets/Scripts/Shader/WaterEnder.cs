@@ -68,7 +68,7 @@ public class WaterEnder : MonoBehaviour
             anime.SetInteger("state", -3);
             movement.enabled = false;
             dash.enabled = false;
-            Invoke("Death", 2f);
+            Invoke("Death", 1f);
             
         }
         transformer.localScale = new Vector3(transformer.localScale.x, factor, 0f);
@@ -79,9 +79,11 @@ public class WaterEnder : MonoBehaviour
     }
 
     IEnumerator LoadLevel(int levelIndex)
-    {
+    {   player.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
+        player.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
         transition.SetTrigger("Start");
-        yield return new WaitForSeconds(1f);
+
+        yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(levelIndex);
     }
     
