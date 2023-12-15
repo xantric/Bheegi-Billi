@@ -9,6 +9,16 @@ TagManager:
   - RotatePoint
   - Jumpable
   - Water
+  - AfterLevel
+  - breakableBlock
+  - obstacle1
+  - TutENd
+  - groundTut
+  - obstacle4
+  - obstacle3
+  - obstacle2
+  - Obstacle5
+  - obstacle6
   layers:
   - Default
   - TransparentFX
