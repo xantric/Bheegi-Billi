@@ -207,7 +207,7 @@ MonoBehaviour:
   groundCheck: {fileID: 5022937606782505576}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 320
   wallCheck: {fileID: 1104510298825177683}
   wallCheck2: {fileID: 4258129245921124974}
   wallLayer:

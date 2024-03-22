@@ -28,9 +28,9 @@ public class Endscene : MonoBehaviour
                 if (timer.timer != 0 && timer.timer < sd.scores[i].score)
                 {
                     sd.scores[i].score = timer.timer;
-                    IsRegistered = true;
 
                 }
+                    IsRegistered = true;
             }
         }
         if(!IsRegistered)
