@@ -10,6 +10,7 @@ public class Endscene : MonoBehaviour
     // Start is called before the first frame update
     private ScoreData sd;
     public Timer timer;
+    private readonly string key = "GameDevIITK";
 
     public Animator transition;
     void Awake()
@@ -59,8 +60,18 @@ public class Endscene : MonoBehaviour
     {
         string savePath = Path.Combine(Application.streamingAssetsPath, "scores" + MainMenuController.level);
         var json = JsonUtility.ToJson(sd);
-        Debug.Log(json);
+        json = EncryptDecrypt(json);
         File.WriteAllText(savePath, json);
+    }
+
+    private string EncryptDecrypt(string data)
+    {
+        string ModifiedData = "";
+        for(int i=0;i<data.Length; i++)
+        {
+            ModifiedData += (char)(data[i]^key[i%key.Length]) ;
+        }
+        return ModifiedData;
     }
 
     IEnumerator LoadLevel(int levelIndex)

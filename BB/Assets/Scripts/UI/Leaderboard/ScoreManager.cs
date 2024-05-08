@@ -13,17 +13,28 @@ public class ScoreManager : MonoBehaviour
     public int level_number;
     string json;
     bool isempty = false;
+    private readonly string key = "GameDevIITK";
     void Awake()
     {
         string savePath = Path.Combine(Application.streamingAssetsPath, "scores" + level_number);
         if (File.Exists(savePath))
         {
             json = File.ReadAllText(savePath);
+            json = EncryptDecrypt(json);
             sd = JsonUtility.FromJson<ScoreData>(json);
             isempty = true;
         }
     }
 
+    private string EncryptDecrypt(string data)
+    {
+        string ModifiedData = "";
+        for (int i = 0; i < data.Length; i++)
+        {
+            ModifiedData += (char)(data[i] ^ key[i % key.Length]);
+        }
+        return ModifiedData;
+    }
     private void Start()
     {
         if (isempty)
