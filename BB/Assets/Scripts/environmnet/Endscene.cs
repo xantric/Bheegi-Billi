@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -56,9 +57,10 @@ public class Endscene : MonoBehaviour
 
     public void SaveScore()
     {
+        string savePath = Path.Combine(Application.streamingAssetsPath, "scores" + MainMenuController.level);
         var json = JsonUtility.ToJson(sd);
         Debug.Log(json);
-        PlayerPrefs.SetString("scores" + MainMenuController.level, json);
+        File.WriteAllText(savePath, json);
     }
 
     IEnumerator LoadLevel(int levelIndex)
