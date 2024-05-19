@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public GameObject sceneUI;
     public static bool gameIsPaused=false;
 
+    private Dash dash;
+    private Movement playermovement;
     [SerializeField] Slider musicSlider;
     [SerializeField] Slider sfxSlider;
     [SerializeField] AudioMixer audioMixer;
@@ -22,6 +24,8 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        playermovement = FindAnyObjectByType<Movement>();
+        dash = FindAnyObjectByType<Dash>();
         if (PlayerPrefs.HasKey("musicvolume"))
         {
             LoadVolume();
@@ -52,12 +56,16 @@ public class GameManager : MonoBehaviour
     public void Resume(){
         sceneUI.SetActive(true);
         pauseMenuUI.SetActive(false);
+        playermovement.enabled = true;
+        dash.enabled = true;
         Time.timeScale=1f;
         gameIsPaused=false;
     }
     public void Pause(){
         sceneUI.SetActive(false);
         pauseMenuUI.SetActive(true);
+        playermovement.enabled=false;
+        dash.enabled= false;
         Time.timeScale=0f;
         gameIsPaused=true;
     }
