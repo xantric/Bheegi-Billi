@@ -9,6 +9,7 @@ public class Story : MonoBehaviour
     VideoPlayer vp;
 
     public Animator transition;
+    public GameObject text;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,15 @@ public class Story : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(vp.frame > 1620)
+        if (Input.GetAxisRaw("Submit") != 0 && vp.frame < 1500)
+        {
+            vp.frame = 1500;
+        }
+        if (vp.frame > 1500)
+        {
+            text.SetActive(false);
+        }
+        if (vp.frame > 1620)
         {
             StartCoroutine(LoadLevel(2));
         }
