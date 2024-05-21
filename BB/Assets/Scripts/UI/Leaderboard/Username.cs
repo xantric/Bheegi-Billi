@@ -16,6 +16,14 @@ public class Username: MonoBehaviour
         if(PlayerPrefs.HasKey("username"))
         user_input.text = PlayerPrefs.GetString("username");
     }
+
+    private void Update()
+    {
+        if(Input.GetKey(KeyCode.Return))
+        {
+            OnClick();
+        }
+    }
     public void OnClick()
     {
         if (!string.IsNullOrEmpty(user_input.text))
