@@ -12,7 +12,7 @@ public class ScoreManager : MonoBehaviour
     public ScoreUi scoreUi;
     public int level_number;
     string json;
-    bool isempty = false;
+    bool isnotempty = false;
     private readonly string key = "GameDevIITK";
     void Awake()
     {
@@ -22,7 +22,7 @@ public class ScoreManager : MonoBehaviour
             json = File.ReadAllText(savePath);
             json = EncryptDecrypt(json);
             sd = JsonUtility.FromJson<ScoreData>(json);
-            isempty = true;
+            isnotempty = true;
         }
     }
 
@@ -37,7 +37,7 @@ public class ScoreManager : MonoBehaviour
     }
     private void Start()
     {
-        if (isempty)
+        if (isnotempty)
         {
             var scores = GetHighScores().ToArray();     
             scoreUi.instantiate();

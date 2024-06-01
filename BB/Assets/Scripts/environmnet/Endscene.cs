@@ -15,8 +15,14 @@ public class Endscene : MonoBehaviour
     public Animator transition;
     void Awake()
     {
-        var json = PlayerPrefs.GetString("scores" + MainMenuController.level, "{}");
-        sd = JsonUtility.FromJson<ScoreData>(json);
+        string savePath = Path.Combine(Application.streamingAssetsPath, "scores" + MainMenuController.level);
+        if (File.Exists(savePath))
+        {
+            string json = File.ReadAllText(savePath);
+            json = EncryptDecrypt(json);
+            sd = JsonUtility.FromJson<ScoreData>(json);
+        }
+        else sd = new ScoreData();
     }
 
     void OnTriggerEnter2D(Collider2D otherCollider)
