@@ -63,6 +63,10 @@ public class MainMenuController : MonoBehaviour
         StartCoroutine(LoadLevel(8));
     }
 
+    public void AudioDestroy()
+    {
+        Destroy(SaveAudio.instance.gameObject);
+    }
     public void Retry()
     {
         if(level == 1)
