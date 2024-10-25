@@ -27,6 +27,7 @@ public class Endscene : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D otherCollider)
     {
+        Cursor.visible = true;
         bool IsRegistered = false;
         string username = PlayerPrefs.GetString("username");
         for (int i = 0; i < sd.scores.Count; i++)

@@ -53,7 +53,7 @@ public class WaterEnder : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().name=="Level 1")
         {
-            Debug.Log("Level 1 reached");
+            //Debug.Log("Level 1 reached");
             // timer += Time.deltaTime;
             factor+=Time.deltaTime*4.0f;
         }
@@ -76,6 +76,7 @@ public class WaterEnder : MonoBehaviour
     }
     void Death()
     {
+        Cursor.visible = true;
         StartCoroutine(LoadLevel(11));
     }
 

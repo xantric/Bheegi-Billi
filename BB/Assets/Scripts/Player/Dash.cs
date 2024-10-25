@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Dash : MonoBehaviour
 {
@@ -27,8 +28,18 @@ public class Dash : MonoBehaviour
     private float _currentDashTime = 0f;
     public bool _isDashing = false;
     private Animator Anime;
+    GamePad controls;
+    bool pressed = false;
+    Vector2 rotation = Vector2.zero;
 
-
+    private void Awake()
+    {
+        controls = new GamePad();
+        controls.GamePlay.RightStick.Enable();
+        controls.GamePlay.RT.Enable();
+        controls.GamePlay.RT.performed += RTPressed;
+        controls.GamePlay.RT.canceled += RTReleased;
+    }
     void Start()
     {
         Anime = player.GetComponent<Animator>();
@@ -36,11 +47,30 @@ public class Dash : MonoBehaviour
         timer = 3.0f;
     }
 
+    void RTPressed(InputAction.CallbackContext context)
+    {
+        pressed = true;
+    }
+
+    void RTReleased(InputAction.CallbackContext context)
+    {
+        pressed = false;
+    }
     // Update is called once per frame
     void Update()
     {
-        MousPos = mainCam.ScreenToWorldPoint(Input.mousePosition); 
-        Vector3 rotation = MousPos - transform.position;
+        
+        if(Input.GetJoystickNames().Length > 0)
+        {
+            Vector2 value = controls.GamePlay.RightStick.ReadValue<Vector2>();
+            if (value != Vector2.zero) rotation = value;
+            //Debug.Log(rotation);
+        }
+        else
+        {
+            MousPos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+            rotation = MousPos - transform.position;
+        }
         float rotZ = Mathf.Atan2(-rotation.x, rotation.y)*Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0,0,rotZ);
         timer += (Time.deltaTime);
@@ -48,7 +78,7 @@ public class Dash : MonoBehaviour
         
         if (timer > stamina)
         {
-            if (Input.GetMouseButtonDown(0) && check == 0)
+            if ((Input.GetMouseButtonDown(0) || pressed) && check == 0)
             {
                 Anime.SetInteger("state", 1);
                 Time.timeScale = 1f / slowness;
@@ -59,7 +89,7 @@ public class Dash : MonoBehaviour
                 
             }
 
-            if (Input.GetMouseButtonUp(0) && check == 1)
+            if ((Input.GetMouseButtonUp(0) || !pressed) && check == 1)
             {
                 Anime.SetInteger("state", 2);
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, arrow.transform.up, targetMagnitude,targetlayers);
