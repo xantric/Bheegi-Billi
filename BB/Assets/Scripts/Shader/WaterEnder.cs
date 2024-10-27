@@ -31,7 +31,7 @@ public class WaterEnder : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   if (SceneManager.GetActiveScene().name == "Level 2" || SceneManager.GetActiveScene().name == "Level 3" || SceneManager.GetActiveScene().name == "Level 4")
+    {   if (SceneManager.GetActiveScene().name == "Level 2" || SceneManager.GetActiveScene().name == "Level 3" || SceneManager.GetActiveScene().name == "Level 4" || SceneManager.GetActiveScene().name == "Level 0")
         {
             if (player.position.y < 125f)
             {

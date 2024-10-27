@@ -48,40 +48,45 @@ public class MainMenuController : MonoBehaviour
         // Load the main game scene (assuming it's at build index 1)
         StartCoroutine(LoadLevel(6));
     }
-
+    public void OpenLevel0()
+    {
+        level = 0;
+        StartCoroutine(LoadLevel(7));
+    }
     public void OpenLevel1()
     {
         // Load the main game scene (assuming it's at build index 1)
         level = 1;
-        StartCoroutine(LoadLevel(7));
+        StartCoroutine(LoadLevel(8));
     }
 
     public void OpenLevel2()
     {
         // Load the main game scene (assuming it's at build index 1)
         level = 2;
-        StartCoroutine(LoadLevel(8));
+        StartCoroutine(LoadLevel(9));
     }
 
     public void OpenLevel3()
     {
         level = 3;
-        StartCoroutine(LoadLevel(9));
+        StartCoroutine(LoadLevel(10));
     }
 
     public void Retry()
     {
+        if (level == 0) StartCoroutine(LoadLevel(7));
         if(level == 1)
-            StartCoroutine(LoadLevel(7));
+            StartCoroutine(LoadLevel(8));
         if(level == 2)
-           StartCoroutine(LoadLevel(8));
+           StartCoroutine(LoadLevel(9));
         if(level == 3)
-            StartCoroutine(LoadLevel(9));
+            StartCoroutine(LoadLevel(10));
     }
 
     public void OpenStory()
     {
-        StartCoroutine(LoadLevel(10));
+        StartCoroutine(LoadLevel(12));
     }
 
     IEnumerator LoadLevel(int levelIndex)
