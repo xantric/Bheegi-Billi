@@ -1,0 +1,54 @@
+{
+    "name": "GamePad",
+    "maps": [
+        {
+            "name": "GamePlay",
+            "id": "0d812419-3d28-4b44-9fe5-2e0d9a195e5d",
+            "actions": [
+                {
+                    "name": "RightStick",
+                    "type": "Value",
+                    "id": "7fe976c1-c067-4721-a72a-71df162832c4",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "RT",
+                    "type": "Button",
+                    "id": "d2ad719c-e76b-460c-86cf-99a1b2707d38",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2782400b-7c4b-4713-86bf-0f54f99cc39c",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightStick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e56dcbef-b99e-4a35-9118-cb88bd5ac2f6",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RT",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

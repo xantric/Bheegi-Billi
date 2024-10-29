@@ -116,7 +116,7 @@ public class Movement : MonoBehaviour
 
     private void WallSlide()
     {
-        Debug.Log(IsWalled());
+        //Debug.Log(IsWalled());
         if (IsWalled() && !IsGrounded() && (horizontal != 0f || dashtime>=0f))
         {   
             isWallSliding = true;

@@ -16,7 +16,7 @@ public class Fireender : MonoBehaviour
     {
         if (water.transform.localScale.y - 1.0f > gameObject.transform.position.y)
         {
-            Debug.Log(100);
+            //Debug.Log(100);
             Destroy(gameObject.GetComponentInChildren<ParticleSystem>());
         }
     }
