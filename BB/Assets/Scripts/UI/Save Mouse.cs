@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
 
 public class SaveMouse : MonoBehaviour
@@ -24,15 +25,15 @@ public class SaveMouse : MonoBehaviour
     }
     private void Update()
     {
-        var connectedGamepads = Input.GetJoystickNames().Where(name => !string.IsNullOrEmpty(name)).ToArray();
-        if (connectedGamepads.Length == 0)
-        {
-            gamepad.enabled = false;
-        }
-        else
+        if (Gamepad.current!=null)
         {
             gamepad.enabled = true;
         }
+        else
+        {
+            gamepad.enabled = false;
+        }
         //Debug.Log(connectedGamepads.Length);
     }
+
 }

@@ -54,10 +54,7 @@ public class MainMenuController : MonoBehaviour
         // Load the main game scene (assuming it's at build index 1)
         level = 1;
         StartCoroutine(LoadLevel(7));
-        if (Input.GetJoystickNames().Length > 0)
-        {
-            Cursor.visible = false;
-        }
+        Cursor.visible = false;
     }
 
     public void OpenLevel2()
@@ -65,10 +62,7 @@ public class MainMenuController : MonoBehaviour
         // Load the main game scene (assuming it's at build index 1)
         level = 2;
         StartCoroutine(LoadLevel(8));
-        if (Input.GetJoystickNames().Length > 0)
-        {
-            Cursor.visible = false;
-        }
+        Cursor.visible = false;
     }
 
     public void AudioDestroy()

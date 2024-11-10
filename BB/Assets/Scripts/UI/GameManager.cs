@@ -15,12 +15,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] Slider musicSlider;
     [SerializeField] Slider sfxSlider;
     [SerializeField] AudioMixer audioMixer;
+    GameObject GamepadMouse;
+    GameObject mouse;
     void Awake()
     {
         if (instance == null)
         {
             instance = this;
         }
+        GamepadMouse = Resources.Load<GameObject>("Prefab/Gamepad mouse");
     }
     private void Start()
     {
@@ -60,6 +63,8 @@ public class GameManager : MonoBehaviour
         dash.enabled = true;
         Time.timeScale=1f;
         gameIsPaused=false;
+        Cursor.visible = false;
+        Destroy(mouse);
     }
     public void Pause(){
         sceneUI.SetActive(false);
@@ -68,14 +73,14 @@ public class GameManager : MonoBehaviour
         dash.enabled= false;
         Time.timeScale=0f;
         gameIsPaused=true;
+        Cursor.visible = true;
+        mouse = Instantiate(GamepadMouse);
     }
 
     public void Restart1()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
-
     }
 
     public void LoadMenu(){
