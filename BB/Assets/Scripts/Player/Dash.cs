@@ -29,7 +29,7 @@ public class Dash : MonoBehaviour
     public bool _isDashing = false;
     private Animator Anime;
     GamePad controls;
-    bool pressed = false;
+    int pressed = 0;
     Vector2 rotation = Vector2.zero;
 
     private void Awake()
@@ -49,12 +49,12 @@ public class Dash : MonoBehaviour
 
     void RTPressed(InputAction.CallbackContext context)
     {
-        pressed = true;
+        pressed = 1;
     }
 
     void RTReleased(InputAction.CallbackContext context)
     {
-        pressed = false;
+        pressed = 2;
     }
     // Update is called once per frame
     void Update()
@@ -78,7 +78,7 @@ public class Dash : MonoBehaviour
         
         if (timer > stamina)
         {
-            if ((Input.GetMouseButtonDown(0) || pressed) && check == 0)
+            if ((Input.GetMouseButtonDown(0) || pressed==1) && check == 0)
             {
                 Anime.SetInteger("state", 1);
                 Time.timeScale = 1f / slowness;
@@ -89,7 +89,7 @@ public class Dash : MonoBehaviour
                 
             }
 
-            if ((Input.GetMouseButtonUp(0) || !pressed) && check == 1)
+            if ((Input.GetMouseButtonUp(0) || pressed==2) && check == 1)
             {
                 Anime.SetInteger("state", 2);
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, arrow.transform.up, targetMagnitude,targetlayers);

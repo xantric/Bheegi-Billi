@@ -17,8 +17,7 @@ public class LevelLocker : MonoBehaviour
         string savePath = Path.Combine(Application.streamingAssetsPath, "scores" + 1);
         if (File.Exists(savePath))
         {
-            Debug.Log("pata nhi");
-        var json = File.ReadAllText(savePath);
+            var json = File.ReadAllText(savePath);
             json = EncryptDecrypt(json);
             sd = JsonUtility.FromJson<ScoreData>(json);
         foreach (Score score in sd.scores)
