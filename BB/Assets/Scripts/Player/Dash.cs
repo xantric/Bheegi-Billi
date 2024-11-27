@@ -60,7 +60,7 @@ public class Dash : MonoBehaviour
     void Update()
     {
         
-        if(Input.GetJoystickNames().Length > 0)
+        if(Gamepad.current!=null)
         {
             Vector2 value = controls.GamePlay.RightStick.ReadValue<Vector2>();
             if (value != Vector2.zero) rotation = value;

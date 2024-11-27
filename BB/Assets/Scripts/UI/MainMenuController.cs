@@ -57,37 +57,16 @@ public class MainMenuController : MonoBehaviour
     {
         // Load the main game scene (assuming it's at build index 1)
         level = 1;
-        StartCoroutine(LoadLevel(8));
-        if (Input.GetJoystickNames().Length > 0)
-        {
-            Cursor.visible = false;
-        }
+        StartCoroutine(LoadLevel(7));
+        Cursor.visible = false;
     }
 
     public void OpenLevel2()
     {
         // Load the main game scene (assuming it's at build index 1)
         level = 2;
-        StartCoroutine(LoadLevel(9));
-    }
-
-    public void OpenLevel3()
-    {
-        level = 3;
-        StartCoroutine(LoadLevel(10));
-        if (Input.GetJoystickNames().Length > 0)
-        {
-            Cursor.visible = false;
-        }
-    }
-    public void OpenLevel4()
-    {
-        level = 4;
-        StartCoroutine(LoadLevel(11));
-        if (Input.GetJoystickNames().Length > 0)
-        {
-            Cursor.visible = false;
-        }
+        StartCoroutine(LoadLevel(8));
+        Cursor.visible = false;
     }
 
     public void AudioDestroy()
