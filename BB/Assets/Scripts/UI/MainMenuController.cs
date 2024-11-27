@@ -80,6 +80,15 @@ public class MainMenuController : MonoBehaviour
             Cursor.visible = false;
         }
     }
+    public void OpenLevel4()
+    {
+        level = 4;
+        StartCoroutine(LoadLevel(11));
+        if (Input.GetJoystickNames().Length > 0)
+        {
+            Cursor.visible = false;
+        }
+    }
 
     public void AudioDestroy()
     {
@@ -99,7 +108,7 @@ public class MainMenuController : MonoBehaviour
 
     public void OpenStory()
     {
-        StartCoroutine(LoadLevel(12));
+        StartCoroutine(LoadLevel(13));
     }
 
     IEnumerator LoadLevel(int levelIndex)
