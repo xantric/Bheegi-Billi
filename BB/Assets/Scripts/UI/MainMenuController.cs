@@ -57,15 +57,28 @@ public class MainMenuController : MonoBehaviour
     {
         // Load the main game scene (assuming it's at build index 1)
         level = 1;
-        StartCoroutine(LoadLevel(7));
+        StartCoroutine(LoadLevel(8));
         Cursor.visible = false;
     }
-
     public void OpenLevel2()
     {
         // Load the main game scene (assuming it's at build index 1)
         level = 2;
-        StartCoroutine(LoadLevel(8));
+        StartCoroutine(LoadLevel(9));
+        Cursor.visible = false;
+    }
+    public void OpenLevel3()
+    {
+        // Load the main game scene (assuming it's at build index 1)
+        level = 3;
+        StartCoroutine(LoadLevel(10));
+        Cursor.visible = false;
+    }
+    public void OpenLevel4()
+    {
+        // Load the main game scene (assuming it's at build index 1)
+        level = 4;
+        StartCoroutine(LoadLevel(11));
         Cursor.visible = false;
     }
 

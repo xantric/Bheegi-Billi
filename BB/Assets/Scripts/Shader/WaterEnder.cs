@@ -15,7 +15,7 @@ public class WaterEnder : MonoBehaviour
     public Dash dash;
     float timer,contact_timer=0f;
     float factor;
-    public float growthRate = 3f;
+    public float growthRate = 2f;
     bool a = true, isInContact = false;
     [SerializeField] Animator anime;
     [SerializeField] AudioSource death;
