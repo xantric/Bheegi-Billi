@@ -4,18 +4,36 @@ using UnityEngine;
 
 public class LevelChange : MonoBehaviour
 {
-    
-    [SerializeField] GameObject level1;
-    [SerializeField] GameObject level2;
+    [SerializeField] GameObject[] levels;
+    int currentLevel;
+
+    void Start()
+    {
+        currentLevel = 0;
+        foreach(GameObject level in levels)
+        {
+            level.SetActive(false);
+        }
+        levels[currentLevel].SetActive(true);
+    }
+
     public void next()
     {
-        level1.SetActive(false);
-        level2.SetActive(true);
+        if (currentLevel+1 < levels.Length)
+        {
+            levels[currentLevel].SetActive(false);
+            currentLevel++;
+            levels[currentLevel].SetActive(true);
+        }
     }
 
     public void back()
     {
-        level1.SetActive(true);
-        level2.SetActive(false);
+        if (currentLevel - 1 >= 0)
+        {
+            levels[currentLevel].SetActive(false);
+            currentLevel--;
+            levels[currentLevel].SetActive(true);
+        }
     }
 }

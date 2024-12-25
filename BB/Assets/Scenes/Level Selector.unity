@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7100927
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1089,8 +1089,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4290683040
+  m_fontColor: {r: 0.627451, g: 0.627451, b: 0.74509805, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1337,7 +1337,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &523150581
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1545,8 +1545,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4290683040
+  m_fontColor: {r: 0.627451, g: 0.627451, b: 0.74509805, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1626,6 +1626,7 @@ GameObject:
   - component: {fileID: 640991660}
   - component: {fileID: 640991659}
   - component: {fileID: 640991658}
+  - component: {fileID: 640991662}
   m_Layer: 5
   m_Name: Level 1
   m_TagString: Untagged
@@ -1774,6 +1775,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 640991656}
   m_CullTransparentMesh: 1
+--- !u!114 &640991662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640991656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab0746aec46acd44bf835bce8401ecb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Level_Button: {fileID: 640991659}
+  button: {fileID: 640991658}
+  level_number: 1
 --- !u!1 &674675089
 GameObject:
   m_ObjectHideFlags: 0
@@ -2240,8 +2256,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4290683040
+  m_fontColor: {r: 0.627451, g: 0.627451, b: 0.74509805, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2462,7 +2478,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &855889296
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2495,8 +2511,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dab0746aec46acd44bf835bce8401ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level2_Button: {fileID: 855889299}
+  Level_Button: {fileID: 855889299}
   button: {fileID: 855889298}
+  level_number: 4
 --- !u!114 &855889298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2897,7 +2914,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1350414664
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3051,8 +3068,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dab0746aec46acd44bf835bce8401ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level2_Button: {fileID: 1350414665}
+  Level_Button: {fileID: 1350414665}
   button: {fileID: 1350414668}
+  level_number: 2
 --- !u!1 &1394730856
 GameObject:
   m_ObjectHideFlags: 0
@@ -3119,8 +3137,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4290683040
+  m_fontColor: {r: 0.627451, g: 0.627451, b: 0.74509805, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3475,7 +3493,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2004660666
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3508,8 +3526,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dab0746aec46acd44bf835bce8401ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level2_Button: {fileID: 2004660669}
+  Level_Button: {fileID: 2004660669}
   button: {fileID: 2004660668}
+  level_number: 3
 --- !u!114 &2004660668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3799,7 +3818,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2060471475
 RectTransform:
   m_ObjectHideFlags: 0

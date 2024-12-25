@@ -7,14 +7,16 @@ using UnityEngine.UI;
 public class LevelLocker : MonoBehaviour
 {
     private ScoreData sd;
-    public Button Level2_Button;
+    public Button Level_Button;
     public ButtonColorChange button;
     private readonly string key = "GameDevIITK";
+    [SerializeField] int level_number;
     void Awake()
     {
-        Level2_Button.enabled = false;
+        level_number--;
+        Level_Button.enabled = false;
         button.enabled = false;
-        string savePath = Path.Combine(Application.streamingAssetsPath, "scores" + 1);
+        string savePath = Path.Combine(Application.streamingAssetsPath, "scores" + level_number);
         if (File.Exists(savePath))
         {
             var json = File.ReadAllText(savePath);
@@ -24,7 +26,7 @@ public class LevelLocker : MonoBehaviour
         {
             if (score.name == PlayerPrefs.GetString("username"))
             {
-                Level2_Button.enabled = true;
+                Level_Button.enabled = true;
                 button.enabled = true;
             }
         }

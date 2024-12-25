@@ -82,7 +82,7 @@ public class WaterEnder : MonoBehaviour
     void Death()
     {
         Cursor.visible = true;
-        StartCoroutine(LoadLevel(11));
+        StartCoroutine(LoadLevel(14));
     }
 
     IEnumerator LoadLevel(int levelIndex)
